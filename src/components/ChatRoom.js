@@ -9,7 +9,7 @@ export default function ChatRoom({ roomId, nickname }) {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/chatrooms/${roomId}/messages`);
+                const response = await axios.get(`https://corporate-gossip.onrender.com/chatrooms/${roomId}/messages`);
                 console.log("🚀 ~ fetchMessages ~ response:", response)
                 if (response.status === 500) {
                     alert("invalid user");
@@ -26,7 +26,7 @@ export default function ChatRoom({ roomId, nickname }) {
     const handleSendMessage = async () => {
         if (message.trim()) {
             try {
-                const response = await axios.post(`http://localhost:3001/chatrooms/${roomId}/messages`, {
+                const response = await axios.post(`https://corporate-gossip.onrender.com/chatrooms/${roomId}/messages`, {
                     userId: nickname,
                     message,
                 });
